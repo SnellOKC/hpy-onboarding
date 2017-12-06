@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+
+  table.table.table-sm
+    thead
+      tr
+        th Name
+        th Region
+        th Division
+        th Ready for Hire
+        th Archived
+      tbody
+      each val in list_candidates
+        tr
+          td 
+            a(href=val.url+'/update') #{val.name}
+          td #{val.cand_region}
+          td #{val.cand_division}
+          td No
+          td #{val.archived} 

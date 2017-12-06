@@ -1,0 +1,78 @@
+extends layout
+
+block content
+  div(class='container-fluid' style='padding: 0px 10px')
+    div(class = 'row')
+      div(class = 'col-lg-4') 
+        div(class = 'well outstanding') Outstanding
+      div(class = 'col-lg-4') 
+        div(class = 'well inprogress') In-Progress
+      div(class = 'col-lg-4') 
+        div(class = 'well offered') Offers Extended
+    div(class = 'row')
+      div(class = 'col-lg-4')
+        div(class = 'col-lg-12')
+          each val in list_candidates
+            - var bucket = val.bucket
+            if bucket == 'outstanding'
+              a(href=val.url+'/update', data-featherlight='iframe', data-featherlight-iframe-allowfullscreen='true', data-featherlight-iframe-width='1200', data-featherlight-iframe-height='800')
+                div(class = 'well cand-card')
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_region}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right') #{val.days_since_offer}
+                  div(class = 'row')
+                    div(class = 'col-lg-9' style = 'font-weight: bold;') #{val.name}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style = 'margin-left: 30px;') 10%
+
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_division}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style='margin-left: 40px;')
+                        a.ellipsis(href='http://www.google.com', target='_blank')
+                          i.fa.fa-ellipsis-h.fa-lg(aria-hidden='true' )
+      div(class = 'col-lg-4')
+        div(class = 'col-lg-12')
+          each val in list_candidates
+            - var bucket = val.bucket
+            if bucket == 'ordered'
+              a(href=val.url+'/update', data-featherlight='iframe', data-featherlight-iframe-allowfullscreen='true', data-featherlight-iframe-width='1200', data-featherlight-iframe-height='800')
+                div(class = 'well cand-card')
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_region}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right') #{val.days_since_offer}
+                  div(class = 'row')
+                    div(class = 'col-lg-9' style = 'font-weight: bold;') #{val.name}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style = 'margin-left: 30px;') 10%
+
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_division}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style='margin-left: 40px;')
+                        a.ellipsis(href='http://www.google.com', target='_blank')
+                          i.fa.fa-ellipsis-h.fa-lg(aria-hidden='true' )
+      div(class = 'col-lg-4')
+        div(class = 'col-lg-12')
+          each val in list_candidates
+            - var bucket = val.bucket
+            if bucket == 'offer'
+              a(href=val.url+'/update', data-featherlight='iframe', data-featherlight-iframe-allowfullscreen='true', data-featherlight-iframe-width='1200', data-featherlight-iframe-height='800')
+                div(class = 'well cand-card')
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_region}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right') #{val.days_since_offer}
+                  div(class = 'row')
+                    div(class = 'col-lg-9' style = 'font-weight: bold;') #{val.name}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style = 'margin-left: 30px;') 10%
+
+                  div(class = 'row')
+                    div(class = 'col-lg-9') #{val.cand_division}
+                    div(class = 'col-lg-3')
+                      span(class = 'float-right' style='margin-left: 40px;')
+                        a.ellipsis(href='http://www.google.com', target='_blank')
+                          i.fa.fa-ellipsis-h.fa-lg(aria-hidden='true' )

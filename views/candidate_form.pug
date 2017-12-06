@@ -1,0 +1,261 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    // link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css')
+    link(rel="stylesheet", href='/get-shit-done-1.4.1/bootstrap3/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/get-shit-done-1.4.1/assets/css/gsdk.css')
+    link(rel='stylesheet', href='/get-shit-done-1.4.1/assets/css/demo.css')
+
+    script(src='https://noelboss.github.io/featherlight/assets/javascripts/jquery-1.7.0.min.js')
+    script(src='/get-shit-done-1.4.1/assets/js/jquery-ui-1.10.4.custom.min.js')
+    // script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js')
+    script(src='/get-shit-done-1.4.1/bootstrap3/js/bootstrap.min.js')
+    script(src='/get-shit-done-1.4.1/assets/js/gsdk-radio.js')
+    script(src='/get-shit-done-1.4.1/assets/js/gsdk-bootstrapswitch.js')
+    script(src='/get-shit-done-1.4.1/assets/js/get-shit-done.js')
+    script(src='/get-shit-done-1.4.1/assets/js/gsdk-checkbox.js')
+
+    link(rel="stylesheet", href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css')
+
+    script(src='https://noelboss.github.io/featherlight/release/featherlight.min.js')
+    link(rel="stylesheet", href='https://noelboss.github.io/featherlight/release/featherlight.min.css')
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  div(class='container-fluid' style='padding: 0px 10px')
+    form(method='POST' action='')
+      div(class = 'row')
+        div(class = 'col-lg-3') 
+          div(class = 'cand-form') General
+        div(class = 'col-lg-3') 
+          div(class = 'cand-form') Onboarding
+        div(class = 'col-lg-3') 
+          div(class = 'cand-form') Hiring
+        div(class = 'col-lg-3') 
+          div(class = 'cand-form') Post-Hire
+      div(class = 'row')
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Candidate
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(class = 'col-lg-8' style = 'padding-top: 10px; padding-left: 0;') Name
+            input#name.form-control(type='text', placeholder='John Smith...' name='name' required='true' value=(undefined===candidate ? '' : candidate.name))
+          div(class = 'col-lg-4' style = 'padding-top: 10px; padding-left: 0; padding-right: 0') Cand ID
+            input#cand_empid.form-control.input-sm(type='text', placeholder='' name='cand_empid' value=(undefined===candidate ? '' : candidate.cand_empid))
+          div Offer Date
+            input#cand_division.form-control(type='date' name='wd_offer_date' value=(undefined===candidate ? '' : candidate.wd_offer_date_yyyy_mm_dd))
+          div Tentative Hire Date
+            input#cand_division.form-control(type='date' name='tentative_hire_date' value=(undefined===candidate ? '' : candidate.tentative_hire_date_yyyy_mm_dd))
+          div Candidate Title
+            select#cand_title.form-control(type='select', placeholder = 'Select title' name = 'cand_title' required = 'true')
+              option(value='RM' selected=(undefined===candidate || candidate.cand_title != 'RM' ? false:'selected')) RM
+              option(value='SPA' selected=(undefined===candidate || candidate.cand_title != 'SPA' ? false:'selected')) SPA
+              option(value='TM' selected=(undefined===candidate || candidate.cand_title != 'TM' ? false:'selected')) TM
+              option(value='Payroll TM' selected=(undefined===candidate || candidate.cand_title != 'Payroll TM' ? false:'selected')) Payroll TM
+              option(value='DM' selected=(undefined===candidate || candidate.cand_title != 'DM' ? false:'selected')) DM
+              option(value='Payroll DM' selected=(undefined===candidate || candidate.cand_title != 'Payroll DM' ? false:'selected')) Payroll DM
+              option(value='Cross-Sell RM' selected=(undefined===candidate || candidate.cand_title != 'Cross-Sell RM' ? false:'selected')) Cross-Sell RM
+              option(value='E-Commerce Specialist' selected=(undefined===candidate || candidate.cand_title != 'E-Commerce Specialist' ? false:'selected')) E-Commerce Specialist
+              option(value='National Accounts Director' selected=(undefined===candidate || candidate.cand_title != 'National Accounts Director' ? false:'selected')) National Accounts Director
+          div(style = 'padding-top: 10px;  font-size: 18px;') Organization
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(class = 'col-lg-8' style = 'padding-top: 10px; padding-left: 0;') Manager
+            input#manager_name.form-control(type='text', placeholder='John Smith...' name='manager_name' required='true' value=(undefined===candidate ? '' : candidate.manager_name))
+          div(class = 'col-lg-4' style = 'padding-top: 10px; padding-left: 0; padding-right: 0') Emp ID
+            input#manager_empid.form-control(type='text', placeholder='' name='manager_empid' value=(undefined===candidate ? '' : candidate.manager_empid))
+          div Region
+            input#cand_region.form-control(type='text' name='cand_region' value=(undefined===candidate ? '' : candidate.cand_region))
+          div Division
+            input#cand_division.form-control(type='text' name='cand_division' value=(undefined===candidate ? '' : candidate.cand_division))
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Candidate Tasks/Paperwork
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='signed_offer_letter', checked=(undefined===candidate || candidate.signed_offer_letter != true ? false:true)) 
+            | &nbsp; Signed Offer Letter
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='signed_sales_agreement', checked=(undefined===candidate || candidate.signed_sales_agreement != true ? false: true))
+            | &nbsp; Signed Sales Agreement
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='signed_background_auth', checked=(undefined===candidate || candidate.signed_background_auth != true ? false: true))
+            | &nbsp; Signed Background Authorization
+          div(style = 'padding-top: 10px; font-size: 18px;') Ordering Background
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='verify_personal_info_entered', checked=(undefined===candidate || candidate.verify_personal_info_entered != true ? false: true))
+            | &nbsp; Verify Personal Info. (SSN, DOB, License)
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_info_candidate_record', checked=(undefined===candidate || candidate.update_info_candidate_record != true ? false: true))
+            | &nbsp; Update Candidate Record
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_info_prehire_record', checked=(undefined===candidate || candidate.update_info_prehire_record != true ? false: true))
+            | &nbsp; Update Pre-hire Record
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='background_ordered', checked=(undefined===candidate || candidate.background_ordered != true ? false:true))
+            | &nbsp; Background Ordered
+          div(style = 'padding-top: 10px; font-size: 18px;') Onboarding Communication
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='onboarding_email_sent', checked=(undefined===candidate || candidate.onboarding_email_sent != true ? false: true))
+            | &nbsp; Send On-boarding email to candidate
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='id_received', checked=(undefined===candidate || candidate.id_received != true ? false: true))
+            | &nbsp; ID's Received
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='auto_ins_received', checked=(undefined===candidate || candidate.auto_ins_received != true ? false: true))
+            | &nbsp; Auto Insurance Received
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='background_cleared', checked=(undefined===candidate || candidate.background_cleared != true ? false: true))
+            | &nbsp; Background Cleared?
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Pre-Hire Tasks
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='add_workphone_email_prehire', checked=(undefined===candidate || candidate.add_workphone_email_prehire != true ? false: true))
+            | &nbsp; Add Phone &amp; Email to Pre-Hire
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='approve_background', checked=(undefined===candidate || candidate.approve_background != true ? false: true))
+            | &nbsp; Approve Background
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='rdy_for_hire', checked=(undefined===candidate || candidate.rdy_for_hire != true ? false: true))
+            | &nbsp; Ready for Hire
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='enter_hire_date', checked=(undefined===candidate || candidate.enter_hire_date != true ? false: true))
+            | &nbsp; Enter Hire Date
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='job_prof_change', checked=(undefined===candidate || candidate.job_prof_change != true ? false: true))
+            | &nbsp; Update Job Profile
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_salary', checked=(undefined===candidate || candidate.update_salary != true ? false: true))
+            | &nbsp; Update Salary to $0.01
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_company', checked=(undefined===candidate || candidate.update_company != true ? false: true))
+            | &nbsp; Verify/Update Company
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_cost_center', checked=(undefined===candidate || candidate.update_cost_center != true ? false: true))
+            | &nbsp; Verify/Update Cost Center
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_home_dept', checked=(undefined===candidate || candidate.update_home_dept != true ? false: true))
+            | &nbsp; Verify/Update Home Department
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_division', checked=(undefined===candidate || candidate.update_division != true ? false: true))
+            | &nbsp; Verify/Update Division
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_region', checked=(undefined===candidate || candidate.update_region != true ? false: true))
+            | &nbsp; Verify/Update Region
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='confirm_ssn', checked=(undefined===candidate || candidate.confirm_ssn != true ? false: true))
+            | &nbsp; Confirm SSN
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='ipad_carrier', checked=(undefined===candidate || candidate.ipad_carrier != true ? false: true))
+            | &nbsp; Add iPad Carrier
+          div Actual Hire Date
+            input#cand_division.form-control(type='date' name='actual_hire_date' value=(undefined===candidate ? '' : candidate.actual_hire_date_yyyy_mm_dd))
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Hiring Communication
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='new_hire_announcement', checked=(undefined===candidate || candidate.new_hire_announcement != true ? false: true))
+            | &nbsp; Send New Hire Announcement
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='send_welcome_email', checked=(undefined===candidate || candidate.send_welcome_email != true ? false: true))
+            | &nbsp; Send Welcome Email
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Day 0 Tasks
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='update_sgm', checked=(undefined===candidate || candidate.update_sgm != true ? false: true))
+            | &nbsp; Update SGM (comp. pkg./product)
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='assign_mgr_sgm', checked=(undefined===candidate || candidate.assign_mgr_sgm != true ? false: true))
+            | &nbsp; Assign to Manager in SGM
+          div(style = 'padding-left: 10px; padding-right: 10px;')
+            input(type='checkbox', name='complete_inine', checked=(undefined===candidate || candidate.complete_inine != true ? false: true))
+            | &nbsp; Complete I-9 in WorkDay
+
+        div(class = 'col-lg-3')
+          div(style = 'padding-top: 10px; font-size: 18px;') Jump Start
+          hr(style = 'margin-top: 0px; margin-bottom: 0px')
+          .row
+            .col-lg-6
+              div Passed Jumpstart?
+            .col-lg-6
+              #myRadioGroup
+                | Yes 
+                input(type='radio', name='cars', checked='checked', value='2') 
+                |   No 
+                input(type='radio', name='cars', value='3')
+          .row(style = 'padding-left: 15px; padding-right: 10px;')
+            #Cars2.desc
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='order_bus_card', checked=(undefined===candidate || candidate.order_bus_card != true ? false: true))
+                | &nbsp; Order Business Cards
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='update_tax_info', checked=(undefined===candidate || candidate.update_tax_info != true ? false: true))
+                | &nbsp; Update Tax Info in Ovation
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='change_job_title', checked=(undefined===candidate || candidate.change_job_title != true ? false: true))
+                | &nbsp; Change Job Title in WD
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='update_direct_deposit', checked=(undefined===candidate || candidate.update_direct_deposit != true ? false: true))
+                | &nbsp; Update Direct Deposit
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='probationary_dates', checked=(undefined===candidate || candidate.probationary_dates != true ? false: true))
+                | &nbsp; Enter Probationary Dates in WD
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='update_ovation_title', checked=(undefined===candidate || candidate.update_ovation_title != true ? false: true))
+                | &nbsp; Update Title in Ovation
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='order_ipad', checked=(undefined===candidate || candidate.order_ipad != true ? false: true))
+                | &nbsp; Order iPad
+            #Cars3.desc(style='display: none;')
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='terminate', checked=(undefined===candidate || candidate.terminate != true ? false: true))
+                | &nbsp; Termination in WD
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='term_ticket_it', checked=(undefined===candidate || candidate.term_ticket_it != true ? false: true))
+                | &nbsp; Term Ticket to IT
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='term_payroll', checked=(undefined===candidate || candidate.term_payroll != true ? false: true))
+                | &nbsp; Terminate in Payroll
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='reset_payroll', checked=(undefined===candidate || candidate.reset_payroll != true ? false: true))
+                | &nbsp; Reset Payroll with Personal Email
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='term_announcement', checked=(undefined===candidate || candidate.term_announcement != true ? false: true))
+                | &nbsp; Termination Announcement
+              div(style = 'padding-left: 10px; padding-right: 10px;')
+                input(type='checkbox', name='term_letter_sent', checked=(undefined===candidate || candidate.term_letter_sent != true ? false: true))
+                | &nbsp; Letter Mailed and Emailed
+        
+      //-   .col-lg-2
+      //-     label.form(for='archived') Archived:&nbsp;
+      //-       input(type='checkbox', name='archived', checked=(undefined===candidate || candidate.archived != true ? false : true))
+      .form-group(style='padding-top:10px')
+        button.btn.btn-sm(id='btn-submit' type='submit') Update
+
+    if errors 
+      ul
+        for error in errors
+          li != error.msg
+
+    hr
+  
+    if candidate === undefined
+      p 
+    else
+      p
+        a(href=candidate.url+'/delete') Delete Candidate
+
+  script.
+    $(document).ready(function() {
+      $("input[name$='cars']").click(function() {
+        var test = $(this).val();
+
+        $("div.desc").hide();
+        $("#Cars" + test).show();
+      });
+    });

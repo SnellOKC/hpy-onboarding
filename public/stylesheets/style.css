@@ -1,0 +1,102 @@
+* {
+	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+a, a:hover {
+	color: black;
+}
+
+.sidebar-nav {
+    padding-left: 15px;
+    list-style: none;
+    box-shadow: 12px 0 100px -4px rgba(31, 73, 125, 0.2);
+    margin: 0px;
+    background: white;
+    height: 100vh;
+}
+
+.switch-padding {
+    padding: 20px;
+}
+
+h5.panel-title {
+	margin-bottom: -10px;
+}
+
+.form-control, select.form-control{ 
+    height: 30px;
+}
+
+.banner {
+	background-color: #36454F;
+	text-align: center;
+	color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-size: 40px;
+	margin-top: 0px;
+}
+
+.outstanding {
+	background-color: #e74c3c;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+}
+
+.inprogress {
+	background-color: #3D9970;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+}
+
+.offered {
+	background-color: #3498db;
+	text-align: center;
+	color: white;
+	font-size: 24px;
+}
+
+.cand-form {
+	text-align: center;
+	color: #36454F;
+	font-size: 24px;
+	border-bottom: 1px solid #36454F;
+}
+
+.cand-card {
+	height: 85px;
+	margin: 0;
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 0px;
+	margin-bottom: 10px;
+	font-size: 18px;
+	box-shadow: 0;
+	transition: box-shadow 1s;
+}
+
+.cand-card:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ellipsis {
+	color: grey;
+}
+
+.ellipsis:hover {
+	color: black;
+}
+
+.gray {
+  width: 100px;
+  background: #eee;
+  float: left;
+}
+
+.orange {
+  width: 100px;
+  background: #fdcb05;
+  float: left;
+}

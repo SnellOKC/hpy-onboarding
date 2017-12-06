@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+
+  table.table.table-condensed
+    thead
+      tr
+        th Name
+        th Date Created
+        th Date Modified
+        th Ready for Hire
+        th Forward
+      tbody
+      each val in list_candidates
+        tr
+          td 
+            a(href=val.url+'/update') #{val.name}
+          td #{val.date_created}
+          td #{val.date_modified}
+          td No
+          td
+            | <input type="checkbox" checked data-toggle="switch" class="ct-green"/>
+
+

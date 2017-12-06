@@ -1,0 +1,37 @@
+extends layout
+
+block content
+
+  h1 #{title}
+          
+  form.form-group(method='POST' action='')
+      label(for='name') Name
+      input#name.form-control(type='text', placeholder='John Smith...' name='name' required='true' value=(undefined===candidate ? '' : candidate.name) )
+      lable(for='cand_title') Title
+      select#cand_title.form-control(type='select', placeholder = 'Select title' name = 'cand_title' required = 'true')
+        option(value='RM' selected=(undefined===candidate || candidate.cand_title != 'RM' ? false:'selected')) RM
+        option(value='SPA' selected=(undefined===candidate || candidate.cand_title != 'SPA' ? false:'selected')) SPA
+        option(value='TM' selected=(undefined===candidate || candidate.cand_title != 'TM' ? false:'selected')) TM
+        option(value='Payroll TM' selected=(undefined===candidate || candidate.cand_title != 'Payroll TM' ? false:'selected')) Payroll TM
+        option(value='DM' selected=(undefined===candidate || candidate.cand_title != 'DM' ? false:'selected')) DM
+        option(value='Payroll DM' selected=(undefined===candidate || candidate.cand_title != 'Payroll DM' ? false:'selected')) Payroll DM
+        option(value='Cross-Sell RM' selected=(undefined===candidate || candidate.cand_title != 'Cross-Sell RM' ? false:'selected')) Cross-Sell RM
+        option(value='E-Commerce Specialist' selected=(undefined===candidate || candidate.cand_title != 'E-Commerce Specialist' ? false:'selected')) E-Commerce Specialist
+        option(value='National Accounts Director' selected=(undefined===candidate || candidate.cand_title != 'National Accounts Director' ? false:'selected')) National Accounts Director
+      label(for='signed_offer_letter') Signed Offer Letter 
+        input(type='checkbox', name='signed_offer_letter', checked=(undefined===candidate || candidate.signed_offer_letter!= true ? false:true) data-toggle="switch")
+      .form-group
+        button.btn.btn-default(type='submit') Submit
+
+  if errors 
+    ul
+      for error in errors
+        li!= error.msg
+
+  hr
+  
+  if candidate === undefined
+    p 
+  else
+    p
+      a(href=candidate.url+'/delete') Delete Candidate
